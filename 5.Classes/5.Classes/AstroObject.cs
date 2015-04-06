@@ -51,5 +51,14 @@ namespace _5.Classes
             // add it to the document
             _doc.Objects.AddSphere(obj);
         }
+
+        public Point3d Center() {
+            return obj.Center;
+        }
+
+        public void UpdateCenter(Point3d _center) {
+            rotation_origin = _center;
+        }
+
     }
 }
