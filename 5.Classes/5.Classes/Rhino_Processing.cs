@@ -13,14 +13,13 @@ class Rhino_Processing
 {
 
     protected RhinoDoc doc;
-    protected int frame_no;
+    public static int frame_no = 0;
     protected bool is_Running;
 
     protected Window window;
 
     public Rhino_Processing()
     {
-        frame_no = 0;
         is_Running = true;
         RhinoApp.EscapeKeyPressed += Abort;
     }
@@ -63,7 +62,7 @@ class Rhino_Processing
 
             if (refresh) Refresh();
 
-            frame_no++;
+            Rhino_Processing.frame_no++;
             Draw();
 
             doc.Views.Redraw();

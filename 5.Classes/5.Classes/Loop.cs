@@ -7,6 +7,7 @@ using Rhino;
 using Rhino.Geometry;
 
 namespace _5.Classes
+//namespace Clases
 {
     class Loop : Rhino_Processing
     {
@@ -21,11 +22,14 @@ namespace _5.Classes
 
         public override void Draw()
         {
-            earth.Rotate(doc);
+            earth.Rotate();
             // we need to update the center of the moon
             moon.UpdateCenter(earth.Center());
 
-            moon.Rotate(doc);
+            moon.Rotate();
+
+            earth.Display(doc);
+            moon.Display(doc);
         }
 
     }

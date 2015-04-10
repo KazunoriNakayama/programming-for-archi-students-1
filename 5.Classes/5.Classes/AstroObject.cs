@@ -41,19 +41,28 @@ namespace _5.Classes
 
 
         //methods
-        public void Rotate(RhinoDoc _doc) { 
+        public void Rotate() { 
             // unit angle in one draw execution(frame). respectively for one year
             double delta_angle = RhinoMath.ToRadians(365.4 / rotation_days);
 
             // rotate the sphere
-            obj.Rotate(delta_angle,Vector3d.ZAxis,rotation_origin);
+            //obj.Rotate(delta_angle,Vector3d.ZAxis,rotation_origin); // seems it has little delay...
+            //TODO: position the obj coordinates not using Rotate(); function
+
+            RhinoApp.WriteLine(Loop.frame_no.ToString());
+
 
             // add it to the document
-            _doc.Objects.AddSphere(obj);
+            //_doc.Objects.AddSphere(obj); // made function to handle this
         }
 
         public Point3d Center() {
             return obj.Center;
+        }
+
+        public void Display(RhinoDoc _doc) {
+            RhinoApp.WriteLine(Loop.frame_no.ToString());
+            _doc.Objects.AddSphere(obj);
         }
 
         public void UpdateCenter(Point3d _center) {
